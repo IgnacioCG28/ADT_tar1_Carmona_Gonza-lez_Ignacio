@@ -50,6 +50,23 @@
         ?>
     </ul>
 
+    <h3>Listado de Clientes con Total Gastado en la Tienda (Orden Decreciente)</h3>
+
+    <table border="1">
+        <tr>
+            <th>Nombre</th>
+            <th>Total Gastado</th>
+        </tr>
+        <?php
+        foreach ($clientesConTotalGastado as $cliente) {
+            echo "<tr>";
+            echo "<td>" . $cliente['Nombre'] . "</td>";
+            echo "<td>$" . $cliente['TotalGastado'] . "</td>";
+            echo "</tr>";
+        }
+        ?>
+    </table>
+
 </body>
 
 </html>

@@ -5,6 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clientes</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        h1{
+            text-decoration: underline;
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body>
@@ -15,7 +27,7 @@
         <?php
         include('index.controller.php');
         foreach ($clientes as $cliente) {
-            if ($cliente['Sub'] == 0) {
+            if ($cliente['Sub'] == 1) {
                 echo "<li>";
                     echo "<strong>Nombre:</strong> " . $cliente['Nombre'] . "<br>";
                 echo "</li>";
@@ -28,7 +40,7 @@
     <ol>
         <?php
          foreach ($clientes as $cliente) {
-            if ($cliente['Sub'] == 1) {
+            if ($cliente['Sub'] == 0) {
                 echo "<li>";
                     echo "<strong>Nombre:</strong> " . $cliente['Nombre'] . "<br>";
                 echo "</li>";

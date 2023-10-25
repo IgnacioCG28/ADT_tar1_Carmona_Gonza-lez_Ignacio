@@ -6,15 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clientes</title>
     <style>
-        body{
+        body {
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            background-color: black;
+            color: green;
         }
-        h1{
+
+        h1 {
             text-decoration: underline;
             text-align: center;
+        }
+
+        h3{
+            text-decoration: underline;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -29,7 +37,7 @@
         foreach ($clientes as $cliente) {
             if ($cliente['Sub'] == 1) {
                 echo "<li>";
-                    echo "<strong>Nombre:</strong> " . $cliente['Nombre'] . "<br>";
+                echo "<strong>Nombre:</strong> " . $cliente['Nombre'] . "<br>";
                 echo "</li>";
             }
         }
@@ -39,10 +47,10 @@
     <h3>Lista ordenada usuarios no suscritos:</h3>
     <ol>
         <?php
-         foreach ($clientes as $cliente) {
+        foreach ($clientes as $cliente) {
             if ($cliente['Sub'] == 0) {
                 echo "<li>";
-                    echo "<strong>Nombre:</strong> " . $cliente['Nombre'] . "<br>";
+                echo "<strong>Nombre:</strong> " . $cliente['Nombre'] . "<br>";
                 echo "</li>";
             }
         }
@@ -58,27 +66,20 @@
             echo "<strong>Nombre:</strong> " . $cliente['Nombre'] . "<br>";
             echo "<strong>Importe Total de Pedidos:</strong> €" . $cliente['TotalPedidos'] . "<br>";
             echo "</li>";
+            echo "<br>";
         }
         ?>
     </ul>
 
     <h3>Listado de Clientes con Total Gastado en la Tienda (Orden Decreciente)</h3>
-
-    <table border="1">
-        <tr>
-            <th>Nombre</th>
-            <th>Total Gastado</th>
-        </tr>
+    <ol>
         <?php
         foreach ($clientesConTotalGastado as $cliente) {
-            echo "<tr>";
-            echo "<td>" . $cliente['Nombre'] . "</td>";
-            echo "<td>$" . $cliente['TotalGastado'] . "</td>";
-            echo "</tr>";
+
+            echo "<li>" . $cliente['Nombre'] . " " .  $cliente['TotalGastado'] . "€</li>";
         }
         ?>
-    </table>
-
+    </ol>
 </body>
 
 </html>

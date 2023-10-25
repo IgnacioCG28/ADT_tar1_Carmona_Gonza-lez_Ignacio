@@ -37,7 +37,7 @@
         foreach ($clientes as $cliente) {
             if ($cliente['Sub'] == 1) {
                 echo "<li>";
-                echo "<strong>Nombre:</strong> " . $cliente['Nombre'] . "<br>";
+                echo $cliente['Nombre'] . "<br>";
                 echo "</li>";
             }
         }
@@ -50,7 +50,7 @@
         foreach ($clientes as $cliente) {
             if ($cliente['Sub'] == 0) {
                 echo "<li>";
-                echo "<strong>Nombre:</strong> " . $cliente['Nombre'] . "<br>";
+                echo $cliente['Nombre'] . "<br>";
                 echo "</li>";
             }
         }
@@ -63,8 +63,8 @@
         <?php
         foreach ($clientesConTotalDePedidos as $cliente) {
             echo "<li>";
-            echo "<strong>Nombre:</strong> " . $cliente['Nombre'] . "<br>";
-            echo "<strong>Importe Total de Pedidos:</strong> €" . $cliente['TotalPedidos'] . "<br>";
+            echo "<b>Nombre:</b> " . $cliente['Nombre'] . "<br>";
+            echo "<b>Importe Total de Pedidos:</b> €" . $cliente['TotalPedidos'] . "<br>";
             echo "</li>";
             echo "<br>";
         }

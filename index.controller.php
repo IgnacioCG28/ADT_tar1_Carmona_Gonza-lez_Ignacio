@@ -5,7 +5,7 @@ $clientes = array(
         "Pedidos" => [
             [
                 "items" => "grapadora, grapas, bolígrafo.",
-                "precio" => 30
+                "precio" => 28
             ]
         ],
         "Sub" => true
@@ -56,29 +56,30 @@ $clientes = array(
     ],
 );
 
+//Teoría: array_filter es una función que se utiliza para filtrar los elementos de un array basándose en una función de devolución de llamada (callback).
 
-// Filtrar clientes que han realizado al menos un pedido
 $clientesConPedidos = array_filter($clientes, function ($cliente) {
     return !empty(array_filter($cliente['Pedidos'], function ($pedido) {
         return $pedido['precio'] > 0;
     }));
 });
-
-// Calcular el importe total de los pedidos para cada cliente
+// Teoría : La función array_map se utiliza para aplicar una función a cada elemento de un array. 
+// La función array_sum se utiliza para calcular la suma de los valores en un array. 
+// La función array_column se utiliza para extraer una sola columna de valores de un array multidimensional. 
 $clientesConTotalDePedidos = array_map(function ($cliente) {
     $total = array_sum(array_column($cliente['Pedidos'], 'precio'));
     $cliente['TotalPedidos'] = $total;
     return $cliente;
 }, $clientesConPedidos);
 
-// Calcular el importe total gastado en la tienda por cada cliente
 $clientesConTotalGastado = array_map(function ($cliente) {
     $total = array_sum(array_column($cliente['Pedidos'], 'precio'));
     $cliente['TotalGastado'] = $total;
     return $cliente;
 }, $clientes);
 
-// Ordenar el listado de clientes en orden decreciente por el importe gastado
+// Teoría: usort es una función que se utiliza para ordenar un array basado en un algoritmo de comparación personalizado.
 usort($clientesConTotalGastado, function ($a, $b) {
     return $b['TotalGastado'] - $a['TotalGastado'];
 });
+

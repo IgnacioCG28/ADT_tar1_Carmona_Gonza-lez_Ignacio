@@ -64,7 +64,7 @@
         foreach ($clientesConTotalDePedidos as $cliente) {
             echo "<li>";
             echo "<b>Nombre:</b> " . $cliente['Nombre'] . "<br>";
-            echo "<b>Importe Total de Pedidos:</b> €" . $cliente['TotalPedidos'] . "<br>";
+            echo "<b>Importe total de Pedidos:</b> €" . $cliente['TotalPedidos'] . "<br>";
             echo "</li>";
             echo "<br>";
         }
